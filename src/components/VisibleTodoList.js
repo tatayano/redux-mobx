@@ -1,6 +1,8 @@
 import React from 'react';
 import SingleTodo from './SingleTodo';
+import { observer } from 'mobx-react';
 
+@observer
 export default class VisibleTodoList extends React.Component {
   render() {
     return (
@@ -18,7 +20,7 @@ export default class VisibleTodoList extends React.Component {
                     todoId={todo.id}
                     text={todo.descriptionText}
                     isDone={todo.isDone}
-                    archiveToggleTodo={this.props.archiveToggleTodo}
+                    archiveToggleTodo={this.props.completeTodo}
                     removeTodo={this.props.removeTodo}
                   />
               )}
