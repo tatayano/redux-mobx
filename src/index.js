@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TodoDataInterface from './lib/TodoDataInterface';
+import initializeStore from './store/initializeStore';
 import TodoApp from './components/TodoApp';
 
-const todoDataInterface = new TodoDataInterface();
+const store = initializeStore(
+  {
+    todos: [],
+    visibilityFilter: "ALL_TODOS"
+  }
+);
 ReactDOM.render(
-  <TodoApp dataInterface={todoDataInterface} />,
+  <TodoApp store={store} />,
   document.getElementById('app')
 );
